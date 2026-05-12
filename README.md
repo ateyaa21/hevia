@@ -1,16 +1,62 @@
-# React + Vite
+# HEVIA — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site vitrine moderne développé pour HEVIA — Maison, Vie & Extérieur, une entreprise spécialisée dans le carrelage haut de gamme et l’aménagement intérieur/extérieur.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Stack technique
 
-## React Compiler
+- React (Vite)
+- Tailwind CSS
+- React Router
+- Framer Motion
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Fonctionnalités
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- UI moderne et responsive
+- Navigation multi-pages (Home, About, Collections, Contact)
+- Sections dynamiques (catalogue, best-sellers, FAQ…)
+- Animations fluides avec Framer Motion
+- Structure modulaire (components + pages)
+- Optimisé pour performance et lisibilité
+
+---
+
+## 📁 Structure du projet
+
+src/  ├── components/  │    ├── Navbar.jsx  │    ├── Footer.jsx  │    └── ScrollToTop.jsx  │  ├── pages/  │    ├── Home/  │    ├── About/  │    ├── Collections/  │    ├── Contact/  │    └── legal/  │  ├── App.jsx  └── main.jsx
+
+---
+
+## ⚙️ Installation
+
+bash npm install npm run dev 
+
+---
+
+## 🏗 Build production
+
+bash npm run build 
+
+---
+
+## 🌐 Déploiement
+
+Le projet est déployable facilement via Netlify ou Vercel.
+
+---
+
+## 🎯 Objectif
+
+Créer une expérience utilisateur premium pour présenter les collections HEVIA avec un design moderne, fluide et orienté conversion.
+
+---
+
+## 👤 Auteur
+
+b3ktas  
+Frontend Developer
+
+---
