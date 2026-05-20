@@ -34,7 +34,6 @@ export default function ServicesSection() {
         className="max-w-[1200px] mx-auto px-6 text-center"
       >
 
-        {/* titre */}
         <h2
           data-animate
           className="text-5xl md:text-6xl font-bold text-[#1E2A38] mb-10 max-[768px]:text-3xl opacity-0 translate-y-10 transition-all duration-700"
@@ -42,7 +41,6 @@ export default function ServicesSection() {
           Nos services chez <span className="text-[#CBA18B]">HEVIA</span>
         </h2>
 
-        {/* texte */}
         <p
           data-animate
           className="text-lg text-[#2B2B2B]/80 leading-relaxed max-w-3xl mx-auto mb-16 max-[768px]:text-sm opacity-0 translate-y-10 transition-all duration-700"
@@ -53,10 +51,8 @@ export default function ServicesSection() {
           alliant conseils, expertise et solutions sur mesure.
         </p>
 
-        {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left max-[768px]:gap-6">
 
-          {/* card 1 */}
           <div
             data-animate
             className="bg-white rounded-3xl p-8 shadow-2xl space-y-4 opacity-0 translate-y-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-2"
@@ -71,7 +67,6 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          {/* card 2 */}
           <div
             data-animate
             className="bg-white rounded-3xl p-8 shadow-2xl space-y-4 opacity-0 translate-y-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-2"
@@ -86,7 +81,6 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          {/* card 3 */}
           <div
             data-animate
             className="bg-white rounded-3xl p-8 shadow-2xl space-y-4 opacity-0 translate-y-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-2"
