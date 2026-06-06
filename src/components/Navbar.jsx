@@ -419,26 +419,37 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/contact"
-            className="
-              mt-10
-              sm:mt-14
-              inline-flex
-              w-fit
-              px-7
-              sm:px-8
-              py-3
-              sm:py-4
-              rounded-full
-              bg-[#1E2A38]
-              text-white
-              text-sm
-              sm:text-base
-              font-medium
-            "
-          >
-            Demander un devis
-          </Link>
+  to="/contact"
+  className="
+    mt-10
+    sm:mt-14
+
+    inline-flex
+    items-center
+    justify-center
+
+    w-fit
+
+    px-8
+    py-4
+
+    rounded-[16px]
+
+    bg-[#1E2A38]
+    text-white
+
+    text-sm
+    font-medium
+
+    transition-all
+    duration-500
+
+    hover:bg-[#CBA18B]
+    hover:text-[#1E2A38]
+  "
+>
+  Demander un devis
+</Link>
 
           <div className="flex gap-3 sm:gap-4 mt-8 sm:mt-12">
 
