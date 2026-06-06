@@ -32,23 +32,33 @@ export default function InspirationSection() {
 
   useEffect(() => {
     const el = ref.current
-
+  
     if (!el) return
-
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.remove("opacity-0", "translate-y-10")
-          el.classList.add("opacity-100", "translate-y-0")
+          el.classList.remove(
+            "opacity-0",
+            "translate-y-10"
+          )
+  
+          el.classList.add(
+            "opacity-100",
+            "translate-y-0"
+          )
+  
+          observer.unobserve(el)
         }
       },
       {
-        threshold: 0.15,
+        threshold: 0,
+        rootMargin: "-100px 0px"
       }
     )
-
+  
     observer.observe(el)
-
+  
     return () => observer.disconnect()
   }, [])
 
