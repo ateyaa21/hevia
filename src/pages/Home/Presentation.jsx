@@ -66,23 +66,7 @@ export default function Presentation() {
             "
           >
 
-            <div
-              className="
-                absolute
-                top-5
-                left-5
-                sm:top-8
-                sm:left-8
-                z-20
-                text-[50px]
-                sm:text-[70px]
-                lg:text-[90px]
-                font-bold
-                text-white/15
-              "
-            >
-              01
-            </div>
+            
 
             <img
               src={img}
