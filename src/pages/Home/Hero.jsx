@@ -118,66 +118,92 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.9 }}
-              className="
-              mt-8
-              sm:mt-12
-              flex
-              flex-col
-              sm:flex-row
-              gap-3
-              sm:gap-4
-              "
-            >
-              <Link
-                to="/collections"
-                className="
-                bg-[#CBA18B]
-                text-black
-                px-6
-                sm:px-8
-                py-3
-                sm:py-4
-                rounded-full
-                text-sm
-                sm:text-base
-                font-medium
-                transition-all
-                duration-500
-                hover:scale-[1.03]
-                text-center
-                "
-              >
-                Découvrir les collections
-              </Link>
+  initial={{ opacity: 0, y: 35 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.25, duration: 0.9 }}
+  className="
+  mt-8
+  sm:mt-12
+  flex
+  flex-col
+  sm:flex-row
+  gap-3
+  sm:gap-4
+  "
+>
 
-              <Link
-                to="/contact"
-                className="
-                border
-                border-white/20
-                bg-white/5
-                backdrop-blur-sm
-                text-white
-                px-6
-                sm:px-8
-                py-3
-                sm:py-4
-                rounded-full
-                text-sm
-                sm:text-base
-                font-medium
-                transition-all
-                duration-500
-                hover:bg-white/10
-                text-center
-                "
-              >
-                Prendre rendez-vous
-              </Link>
-            </motion.div>
+  <Link
+    to="/collections"
+    className="
+    bg-[#CBA18B]
+    text-black
+
+    px-5
+    sm:px-8
+
+    py-3
+    sm:py-4
+
+    rounded-full
+
+    text-sm
+    sm:text-base
+
+    font-medium
+
+    transition-all
+    duration-500
+
+    hover:scale-[1.03]
+
+    text-center
+
+    w-fit
+    "
+  >
+    Découvrir les collections
+  </Link>
+
+  <Link
+    to="/contact"
+    className="
+    border
+    border-white/20
+
+    bg-white/5
+    backdrop-blur-sm
+
+    text-white
+
+    px-5
+    sm:px-8
+
+    py-3
+    sm:py-4
+
+    rounded-full
+
+    text-sm
+    sm:text-base
+
+    font-medium
+
+    transition-all
+    duration-500
+
+    hover:bg-white/10
+
+    text-center
+
+    w-fit
+    "
+  >
+    Prendre rendez-vous
+  </Link>
+
+</motion.div>
+
+
 
           </div>
 
@@ -186,17 +212,22 @@ export default function Hero() {
       </div>
 
       <div
-        className="
-        hidden
-        md:flex
-        absolute
-        left-8
-        bottom-10
-        z-30
-        items-center
-        gap-3
-        "
-      >
+  className="
+  flex
+  absolute
+
+  left-5
+  sm:left-8
+
+  bottom-20
+  sm:bottom-10
+
+  z-30
+
+  items-center
+  gap-3
+  "
+>
         <a
           href="https://www.instagram.com/maison.hevia/"
           target="_blank"
