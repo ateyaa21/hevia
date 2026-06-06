@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Intro />
       <Collections />
+      <Intro />
       <BestSellers />
       <Presentation />
       <Catalogue />
