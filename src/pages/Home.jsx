@@ -8,6 +8,7 @@ import Hero from "./Home/Hero";
 import Intro from "./Home/Intro";
 import Presentation from "./Home/Presentation";
 import Process from "./Home/Process";
+import Reviews from "./Home/Reviews";
 import Why from "./Home/Why";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Collections />
       <Intro />
+      <Reviews />
       <BestSellers />
       <Presentation />
       <Catalogue />
