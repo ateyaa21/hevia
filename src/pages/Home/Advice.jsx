@@ -70,23 +70,6 @@ export default function Advice() {
             "
           >
 
-            <div
-              className="
-                absolute
-                top-5
-                left-5
-                sm:top-8
-                sm:left-8
-                z-20
-                text-[60px]
-                sm:text-[75px]
-                lg:text-[90px]
-                font-bold
-                text-white/15
-              "
-            >
-              02
-            </div>
 
             <img
               src={img}
