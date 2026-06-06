@@ -20,7 +20,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40)
+      setScrolled(window.scrollY > 30)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -35,10 +35,10 @@ export default function Navbar() {
   }, [location.pathname])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto"
+    document.body.style.overflow = menuOpen ? "hidden" : ""
 
     return () => {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = ""
     }
   }, [menuOpen])
 
@@ -48,59 +48,77 @@ export default function Navbar() {
 
         <nav
           className={`
-            relative
-            mt-5
             mx-auto
-            w-[94%]
-            lg:w-[88%]
+            mt-3
+            sm:mt-4
+            w-[96%]
+            lg:w-[90%]
             max-w-7xl
-            rounded-[24px]
             transition-all
             duration-500
             ${
               scrolled
                 ? `
-                  bg-[#ECE6DF]/82
+                  bg-[#ECE6DF]/88
                   backdrop-blur-2xl
                   border
-                  border-[#CBA18B]/15
-                  shadow-[0_15px_50px_rgba(0,0,0,0.06)]
+                  border-[#CBA18B]/10
+                  rounded-[18px]
+                  sm:rounded-[22px]
+                  shadow-[0_12px_40px_rgba(0,0,0,0.05)]
                 `
                 : `
-                  bg-white/8
+                  bg-[#ECE6DF]/55
                   backdrop-blur-xl
                   border
-                  border-white/10
+                  border-white/20
+                  rounded-[18px]
+                  sm:rounded-[22px]
                 `
             }
           `}
         >
 
-          <div className="px-6 lg:px-10 h-[76px] flex items-center justify-between">
+          <div
+            className="
+              px-4
+              sm:px-6
+              lg:px-8
+              h-[68px]
+              sm:h-[76px]
+              flex
+              items-center
+              justify-between
+            "
+          >
 
             <Link
               to="/"
-              className="flex items-center gap-4"
+              className="flex items-center gap-3 sm:gap-4"
             >
 
               <img
                 src={logo}
                 alt="HEVIA"
                 className="
-                  w-14
-                  h-14
-                  rounded-[16px]
+                  w-11
+                  h-11
+                  sm:w-12
+                  sm:h-12
+                  rounded-[12px]
                   object-cover
                 "
               />
 
-              <div className="hidden md:block">
+              <div>
 
                 <div
                   className="
                     text-[#1E2A38]
-                    text-sm
-                    tracking-[0.35em]
+                    text-xs
+                    sm:text-sm
+                    tracking-[0.25em]
+                    sm:tracking-[0.35em]
                     uppercase
                     font-medium
                   "
@@ -110,9 +128,11 @@ export default function Navbar() {
 
                 <div
                   className="
-                    text-[11px]
+                    text-[9px]
+                    sm:text-[11px]
                     text-[#1E2A38]/50
-                    tracking-[0.25em]
+                    tracking-[0.15em]
+                    sm:tracking-[0.25em]
                     uppercase
                   "
                 >
@@ -126,11 +146,11 @@ export default function Navbar() {
             <ul
               className="
                 hidden
-                lg:flex
+                xl:flex
                 items-center
-                gap-12
+                gap-8
+                2xl:gap-12
                 text-sm
-                tracking-wide
               "
             >
 
@@ -150,7 +170,6 @@ export default function Navbar() {
                       }
                     `}
                   >
-
                     {link.name}
 
                     {location.pathname === link.path && (
@@ -173,22 +192,83 @@ export default function Navbar() {
 
             </ul>
 
-            <div className="hidden lg:flex items-center">
+            <div
+              className="
+                hidden
+                xl:flex
+                items-center
+                gap-4
+              "
+            >
+
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-2
+                  pr-4
+                  border-r
+                  border-[#1E2A38]/10
+                "
+              >
+
+                <a
+                  href="https://www.instagram.com/maison.hevia/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+                    w-9
+                    h-9
+                    rounded-full
+                    bg-white/70
+                    flex
+                    items-center
+                    justify-center
+                    text-[#1E2A38]
+                    transition-all
+                    duration-300
+                    hover:bg-[#CBA18B]
+                  "
+                >
+                  <FaInstagram size={14} />
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61580245243798"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+                    w-9
+                    h-9
+                    rounded-full
+                    bg-white/70
+                    flex
+                    items-center
+                    justify-center
+                    text-[#1E2A38]
+                    transition-all
+                    duration-300
+                    hover:bg-[#CBA18B]
+                  "
+                >
+                  <FaFacebookF size={13} />
+                </a>
+
+              </div>
 
               <Link
                 to="/contact"
                 className="
                   bg-[#1E2A38]
                   text-white
-                  px-7
+                  px-6
                   py-3
-                  rounded-[14px]
+                  rounded-[12px]
                   font-medium
                   transition-all
                   duration-500
                   hover:bg-[#CBA18B]
                   hover:text-[#1E2A38]
-                  hover:-translate-y-0.5
                 "
               >
                 Demander un devis
@@ -199,7 +279,7 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="
-                lg:hidden
+                xl:hidden
                 relative
                 w-10
                 h-10
@@ -212,7 +292,7 @@ export default function Navbar() {
               <span
                 className={`
                   absolute
-                  w-7
+                  w-6
                   h-[2px]
                   bg-[#1E2A38]
                   transition-all
@@ -228,7 +308,7 @@ export default function Navbar() {
               <span
                 className={`
                   absolute
-                  w-7
+                  w-6
                   h-[2px]
                   bg-[#1E2A38]
                   transition-all
@@ -244,7 +324,7 @@ export default function Navbar() {
               <span
                 className={`
                   absolute
-                  w-7
+                  w-6
                   h-[2px]
                   bg-[#1E2A38]
                   transition-all
@@ -273,10 +353,6 @@ export default function Navbar() {
           bg-[#F8F5F1]
           transition-all
           duration-500
-          flex
-          flex-col
-          justify-center
-          px-10
           ${
             menuOpen
               ? "opacity-100 visible"
@@ -285,104 +361,130 @@ export default function Navbar() {
         `}
       >
 
-        <div className="space-y-8">
-
-          {links.map((link, index) => (
-
-            <Link
-              key={link.path}
-              to={link.path}
-              className="
-                flex
-                items-center
-                gap-6
-                text-[#1E2A38]
-                hover:text-[#CBA18B]
-                transition-all
-              "
-            >
-
-              <span
-                className="
-                  text-[#CBA18B]
-                  text-sm
-                  tracking-[0.3em]
-                "
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <span
-                className="
-                  text-4xl
-                  font-light
-                "
-              >
-                {link.name}
-              </span>
-
-            </Link>
-
-          ))}
-
-        </div>
-
-        <Link
-          to="/contact"
+        <div
           className="
-            mt-14
-            inline-flex
-            w-fit
-            px-8
-            py-4
-            rounded-full
-            bg-[#1E2A38]
-            text-white
-            font-medium
+            h-full
+            flex
+            flex-col
+            justify-center
+            px-6
+            sm:px-10
           "
         >
-          Demander un devis
-        </Link>
 
-        <div className="flex gap-4 mt-12">
+          <div className="space-y-6 sm:space-y-8">
 
-          <a
-            href="https://www.instagram.com/maison.hevia/"
-            target="_blank"
-            rel="noreferrer"
+            {links.map((link, index) => (
+
+              <Link
+                key={link.path}
+                to={link.path}
+                className="
+                  flex
+                  items-center
+                  gap-4
+                  sm:gap-6
+                  text-[#1E2A38]
+                  hover:text-[#CBA18B]
+                  transition-all
+                "
+              >
+
+                <span
+                  className="
+                    text-[#CBA18B]
+                    text-xs
+                    sm:text-sm
+                    tracking-[0.25em]
+                  "
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span
+                  className="
+                    text-3xl
+                    sm:text-4xl
+                    md:text-5xl
+                    font-light
+                  "
+                >
+                  {link.name}
+                </span>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+          <Link
+            to="/contact"
             className="
-              w-12
-              h-12
+              mt-10
+              sm:mt-14
+              inline-flex
+              w-fit
+              px-7
+              sm:px-8
+              py-3
+              sm:py-4
               rounded-full
-              bg-white
-              shadow-md
-              flex
-              items-center
-              justify-center
-              text-[#1E2A38]
+              bg-[#1E2A38]
+              text-white
+              text-sm
+              sm:text-base
+              font-medium
             "
           >
-            <FaInstagram />
-          </a>
+            Demander un devis
+          </Link>
 
-          <a
-            href="https://www.facebook.com/profile.php?id=61580245243798"
-            target="_blank"
-            rel="noreferrer"
-            className="
-              w-12
-              h-12
-              rounded-full
-              bg-white
-              shadow-md
-              flex
-              items-center
-              justify-center
-              text-[#1E2A38]
-            "
-          >
-            <FaFacebookF />
-          </a>
+          <div className="flex gap-3 sm:gap-4 mt-8 sm:mt-12">
+
+            <a
+              href="https://www.instagram.com/maison.hevia/"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                w-11
+                h-11
+                sm:w-12
+                sm:h-12
+                rounded-full
+                bg-white
+                shadow-md
+                flex
+                items-center
+                justify-center
+                text-[#1E2A38]
+              "
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61580245243798"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                w-11
+                h-11
+                sm:w-12
+                sm:h-12
+                rounded-full
+                bg-white
+                shadow-md
+                flex
+                items-center
+                justify-center
+                text-[#1E2A38]
+              "
+            >
+              <FaFacebookF />
+            </a>
+
+          </div>
 
         </div>
 
