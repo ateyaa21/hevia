@@ -15,12 +15,25 @@ const links = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(true)
 
   const location = useLocation()
 
   useEffect(() => {
+    let lastScroll = window.scrollY
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      const currentScroll = window.scrollY
+
+      setScrolled(currentScroll > 20)
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        setShowNavbar(false)
+      } else {
+        setShowNavbar(true)
+      }
+
+      lastScroll = currentScroll
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -33,14 +46,40 @@ export default function Navbar() {
     setMenuOpen(false)
   }, [location.pathname])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : ""
+
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
+
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-[1000]">
+      <header
+        className={`
+          fixed
+          top-0
+          left-0
+          w-full
+          z-[1000]
+
+          transition-all
+          duration-500
+
+          ${
+            showNavbar
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0"
+          }
+        `}
+      >
 
         <nav
           className={`
             mx-auto
             mt-3
+
             w-[96%]
             max-w-7xl
 
@@ -82,6 +121,7 @@ export default function Navbar() {
             />
 
             <div>
+
               <p
                 className="
                   text-xs
@@ -104,7 +144,9 @@ export default function Navbar() {
               >
                 Béziers
               </p>
+
             </div>
+
           </Link>
 
           <ul
@@ -116,8 +158,11 @@ export default function Navbar() {
               text-sm
             "
           >
+
             {links.map((link) => (
+
               <li key={link.path}>
+
                 <Link
                   to={link.path}
                   className={`
@@ -133,8 +178,11 @@ export default function Navbar() {
                 >
                   {link.name}
                 </Link>
+
               </li>
+
             ))}
+
           </ul>
 
           <div
@@ -153,7 +201,9 @@ export default function Navbar() {
               className="
                 w-8
                 h-8
+
                 rounded-full
+
                 border
                 border-[#1E2A38]/10
 
@@ -177,7 +227,9 @@ export default function Navbar() {
               className="
                 w-8
                 h-8
+
                 rounded-full
+
                 border
                 border-[#1E2A38]/10
 
@@ -311,9 +363,66 @@ export default function Navbar() {
             Demander un devis
           </Link>
 
+          <div
+            className="
+              flex
+              gap-4
+              mt-10
+            "
+          >
+
+            <a
+              href="https://www.instagram.com/maison.hevia/"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                w-11
+                h-11
+
+                rounded-full
+
+                border
+                border-[#1E2A38]/10
+
+                flex
+                items-center
+                justify-center
+
+                text-[#1E2A38]
+              "
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61580245243798"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                w-11
+                h-11
+
+                rounded-full
+
+                border
+                border-[#1E2A38]/10
+
+                flex
+                items-center
+                justify-center
+
+                text-[#1E2A38]
+              "
+            >
+              <FaFacebookF />
+            </a>
+
+          </div>
+
         </div>
 
       </div>
+
     </>
   )
 }
