@@ -38,16 +38,22 @@ export default function AboutSection() {
     <section
       ref={ref}
       className="
-        py-20
-        sm:py-24
-        md:py-32
-        lg:py-44
-        bg-[#F8F5F1]
-        opacity-0
-        translate-y-12
-        transition-all
-        duration-1000
-      "
+pt-36
+sm:pt-40
+md:pt-44
+lg:pt-52
+
+pb-20
+sm:pb-24
+md:pb-32
+lg:pb-44
+
+bg-[#F8F5F1]
+opacity-0
+translate-y-12
+transition-all
+duration-1000
+"
     >
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
