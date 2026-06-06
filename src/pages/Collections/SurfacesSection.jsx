@@ -4,36 +4,42 @@ const items = [
   {
     number: "01",
     title: "Imitation Pierre",
+    path: "/collections/imitation-pierre",
     desc: "L’authenticité de la pierre naturelle alliée aux performances des matériaux modernes.",
     img: "/images/home/acceuil_home_1.jpg",
   },
   {
     number: "02",
     title: "Imitation Béton",
+    path: "/collections/imitation-beton",
     desc: "Des surfaces contemporaines inspirées de l’architecture moderne.",
     img: "/images/home/catalogue_home2.jpg",
   },
   {
     number: "03",
     title: "Imitation Bois",
+    path: "/collections/imitation-bois",
     desc: "La chaleur du bois avec la résistance et la simplicité d’entretien du carrelage.",
     img: "/images/home/catalogue_home2.jpg",
   },
   {
     number: "04",
     title: "Imitation Marbre",
+    path: "/collections/imitation-marbre",
     desc: "Des collections élégantes inspirées des marbres les plus prestigieux.",
     img: "/images/home/catalogue_home1.jpg",
   },
   {
     number: "05",
     title: "Salle de Bain",
+    path: "/collections/salle-de-bain",
     desc: "Pensé pour les espaces de bien-être et les environnements humides.",
     img: "/images/home/acceuil_home_2.png",
   },
   {
     number: "06",
     title: "Extérieur",
+    path: "/collections/exterieur",
     desc: "Des matériaux conçus pour résister durablement aux conditions extérieures.",
     img: "/images/home/acceuil_home3.jpg",
   },
@@ -112,20 +118,22 @@ export default function SurfacesSection() {
         >
 
           {items.map((item) => (
-            <article
-              key={item.number}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-[28px]
-                sm:rounded-[32px]
-                lg:rounded-[40px]
-                h-[360px]
-                sm:h-[430px]
-                lg:h-[580px]
-              "
-            >
+           <Link
+           to={item.path}
+           className="
+             group
+             relative
+             overflow-hidden
+             rounded-[28px]
+             sm:rounded-[32px]
+             lg:rounded-[40px]
+             h-[360px]
+             sm:h-[430px]
+             lg:h-[580px]
+             block
+           "
+         >
+          
 
               <img
                 src={item.img}
@@ -215,36 +223,35 @@ export default function SurfacesSection() {
                   {item.desc}
                 </p>
 
-                <Link
-                  to="/collections"
-                  className="
-                    inline-flex
-                    mt-6
-                    sm:mt-8
-                    items-center
-                    gap-3
-                    text-sm
-                    sm:text-base
-                    text-[#CBA18B]
-                  "
-                >
-                  Découvrir
+                <div
+  className="
+    inline-flex
+    mt-6
+    sm:mt-8
+    items-center
+    gap-3
+    text-sm
+    sm:text-base
+    text-[#CBA18B]
+  "
+>
+  Découvrir
 
-                  <span
-                    className="
-                      transition-transform
-                      duration-500
-                      group-hover:translate-x-2
-                    "
-                  >
-                    →
-                  </span>
+  <span
+    className="
+      transition-transform
+      duration-500
+      group-hover:translate-x-2
+    "
+  >
+    →
+  </span>
 
-                </Link>
+</div>
 
               </div>
 
-            </article>
+              </Link>
           ))}
 
         </div>

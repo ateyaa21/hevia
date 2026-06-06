@@ -27,6 +27,15 @@ import PageTransition from "./components/PageTransition"
 import Inspiration from "./pages/Inspiration"
 import Realisations from "./pages/Realisations"
 
+import ImitBeton from "./pages/ImitBeton"
+import ImitBois from "./pages/ImitBois"
+import ImitPierre from "./pages/ImitPierre"
+import ImitMarbre from "./pages/ImitMarbre"
+
+import SalleDeBain from "./pages/SalleDeBain"
+
+import Exterieur from "./pages/Exterieur"
+
 export let lenisInstance = null
 
 function AnimatedRoutes() {
@@ -139,6 +148,60 @@ function AnimatedRoutes() {
           }
         />
 
+<Route
+  path="/collections/imitation-beton"
+  element={
+    <PageTransition>
+      <ImitBeton />
+    </PageTransition>
+  }
+/>
+
+<Route
+  path="/collections/imitation-bois"
+  element={
+    <PageTransition>
+      <ImitBois />
+    </PageTransition>
+  }
+/>
+
+<Route
+  path="/collections/imitation-pierre"
+  element={
+    <PageTransition>
+      <ImitPierre />
+    </PageTransition>
+  }
+/>
+
+<Route
+  path="/collections/imitation-marbre"
+  element={
+    <PageTransition>
+      <ImitMarbre />
+    </PageTransition>
+  }
+/>
+
+<Route
+  path="/collections/salle-de-bain"
+  element={
+    <PageTransition>
+      <SalleDeBain />
+    </PageTransition>
+  }
+/>
+
+
+<Route
+  path="/collections/exterieur"
+  element={
+    <PageTransition>
+      <Exterieur />
+    </PageTransition>
+  }
+/>
       </Routes>
 
     </AnimatePresence>
