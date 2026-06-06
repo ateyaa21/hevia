@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { FaInstagram, FaFacebookF } from "react-icons/fa"
+import { AnimatePresence, motion } from "framer-motion"
 
 import logo from "/images/logo/logo-hevia.jpg"
 
@@ -57,23 +58,23 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`
-          fixed
-          top-0
-          left-0
-          w-full
-          z-[1000]
+  className={`
+    fixed
+    top-0
+    left-0
+    w-full
+    z-[1000]
 
-          transition-all
-          duration-500
+    transition-all
+    duration-500
 
-          ${
-            showNavbar
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-full opacity-0"
-          }
-        `}
-      >
+    ${
+      showNavbar
+        ? "translate-y-0 opacity-100"
+        : "-translate-y-full opacity-0"
+    }
+  `}
+>
 
         <nav
           className={`
@@ -288,140 +289,232 @@ export default function Navbar() {
 
       </header>
 
-      <div
-        className={`
-          fixed
-          inset-0
-          z-[999]
-
+      <AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="
+        fixed
+        inset-0
+        z-[1100]
+        bg-black/20
+        backdrop-blur-sm
+        xl:hidden
+      "
+    >
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{
+          duration: 0.45,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          ml-auto
+          h-full
+          w-full
           bg-[#F8F5F1]
-
-          transition-all
-          duration-500
-
-          ${
-            menuOpen
-              ? "opacity-100 visible"
-              : "opacity-0 invisible"
-          }
-        `}
+        "
       >
-
         <div
           className="
-            h-full
-
             flex
-            flex-col
-            justify-center
-
-            px-8
+            h-20
+            items-center
+            justify-between
+            border-b
+            border-[#CBA18B]/10
+            px-6
           "
         >
+          <div className="flex items-center gap-3">
 
-          <div className="space-y-8">
+            <img
+              src={logo}
+              alt="HEVIA"
+              className="
+                w-10
+                h-10
+                rounded-xl
+                object-cover
+              "
+            />
 
-            {links.map((link) => (
-
-              <Link
-                key={link.path}
-                to={link.path}
+            <div>
+              <p
                 className="
-                  block
-
-                  text-4xl
-                  font-light
-
+                  text-xs
+                  uppercase
+                  tracking-[0.28em]
+                  font-medium
                   text-[#1E2A38]
                 "
               >
-                {link.name}
-              </Link>
+                HEVIA
+              </p>
 
+              <p
+                className="
+                  text-[10px]
+                  uppercase
+                  tracking-[0.15em]
+                  text-[#1E2A38]/50
+                "
+              >
+                Béziers
+              </p>
+            </div>
+
+          </div>
+
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="
+              text-4xl
+              font-light
+              text-[#1E2A38]
+            "
+          >
+            ×
+          </button>
+        </div>
+
+        <div
+          className="
+            flex
+            min-h-[calc(100dvh-80px)]
+            flex-col
+            justify-between
+            p-6
+            pb-20
+          "
+        >
+          <nav className="flex flex-col">
+
+            {links.map((link, index) => (
+              <motion.div
+                key={link.path}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: index * 0.08,
+                }}
+              >
+                <Link
+                  to={link.path}
+                  onClick={() => setMenuOpen(false)}
+                  className="
+                    block
+                    border-b
+                    border-[#CBA18B]/10
+                    py-5
+                    text-2xl
+                    font-light
+                    text-[#1E2A38]
+                    transition-all
+                    duration-300
+                    hover:text-[#CBA18B]
+                  "
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
 
-          </div>
+          </nav>
 
-          <Link
-            to="/contact"
-            className="
-              mt-12
-
-              w-fit
-
-              px-8
-              py-4
-
-              rounded-full
-
-              bg-[#CBA18B]
-              text-[#1E2A38]
-
-              font-medium
-            "
-          >
-            Demander un devis
-          </Link>
-
-          <div
-            className="
-              flex
-              gap-4
-              mt-10
-            "
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
           >
 
-            <a
-              href="https://www.instagram.com/maison.hevia/"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
               className="
-                w-11
-                h-11
-
-                rounded-full
-
-                border
-                border-[#1E2A38]/10
-
+                mb-12
                 flex
+                w-full
                 items-center
                 justify-center
-
-                text-[#1E2A38]
+                rounded-2xl
+                bg-[#1E2A38]
+                px-6
+                py-4
+                text-base
+                font-medium
+                text-white
+                transition-all
+                duration-300
+                hover:bg-[#CBA18B]
+                hover:text-[#1E2A38]
               "
             >
-              <FaInstagram />
-            </a>
+              Demander un devis
+            </Link>
 
-            <a
-              href="https://www.facebook.com/profile.php?id=61580245243798"
-              target="_blank"
-              rel="noreferrer"
-              className="
-                w-11
-                h-11
+            <div className="flex gap-3 mb-8">
 
-                rounded-full
+              <a
+                href="https://www.instagram.com/maison.hevia/"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  border
+                  border-[#1E2A38]/10
+                  flex
+                  items-center
+                  justify-center
+                  text-[#1E2A38]
+                "
+              >
+                <FaInstagram />
+              </a>
 
-                border
-                border-[#1E2A38]/10
+              <a
+                href="https://www.facebook.com/profile.php?id=61580245243798"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  border
+                  border-[#1E2A38]/10
+                  flex
+                  items-center
+                  justify-center
+                  text-[#1E2A38]
+                "
+              >
+                <FaFacebookF />
+              </a>
 
-                flex
-                items-center
-                justify-center
+            </div>
 
-                text-[#1E2A38]
-              "
-            >
-              <FaFacebookF />
-            </a>
+            <div className="space-y-2 text-sm text-[#1E2A38]/60">
+              <p>Béziers • Occitanie</p>
+              <p>contact@hevia.fr</p>
+              <p>Maison, Vie & Extérieur</p>
+            </div>
 
-          </div>
+          </motion.div>
 
         </div>
 
-      </div>
+      </motion.div>
+
+    </motion.div>
+  )}
+</AnimatePresence>
 
     </>
   )
